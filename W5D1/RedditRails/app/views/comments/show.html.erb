@@ -1,0 +1,32 @@
+<h1>Comments page</h1>
+<%= @comment.content %>
+<form action="<%= comment_votes_url(@comment) %>" method="post">
+  <%= auth_token %>
+  <input type="hidden" name="vote[votable_id]" value="<%= @comment.id %>">
+  <input type="hidden" name="vote[votable_type]" value="<%= @comment.class %>">
+  <input type="hidden" name="vote[value]" value= 1>
+  <input type="submit" value="👍">
+</form>
+<form action="<%= comment_votes_url(@comment) %>" method="post">
+  <%= auth_token %>
+  <input type="hidden" name="vote[votable_id]" value="<%= @comment.id %>">
+  <input type="hidden" name="vote[votable_type]" value="<%= @comment.class %>">
+  <input type="hidden" name="vote[value]" value= -1>
+  <input type="submit" value="👎">
+</form>
+<br><br>
+<h2>Replies</h2>
+<% @comment.child_comments.each do |child| %>
+  <%= child.content %>
+  <br>
+<% end %>
+<h3>Reply to this thread</h3>
+  <form action="<%= comments_url %>" method="post">
+    <%= auth_token %>
+    <input type="hidden" name="comment[parent_comment_id]" value="<%= @comment.id %>">
+    <textarea name="comment[content]" rows="8" cols="40"></textarea>
+    <br>
+    <input type="hidden" name="comment[post_id]" value="<%= @comment.post_id %>">
+    <input type="hidden" name="comment[parent_comment_id]" value="<%= @comment.id %>">
+    <input type="submit" name="name" value="Post reply">
+  </form>

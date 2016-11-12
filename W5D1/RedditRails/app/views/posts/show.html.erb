@@ -1,0 +1,46 @@
+<h1><%= @post.title %></h1>
+<br><br>
+<h2>Content</h2>
+<p>
+  <%= @post.content %>
+</p>
+<form action="<%= post_votes_url(@post) %>" method="post">
+  <%= auth_token %>
+  <input type="hidden" name="vote[votable_id]" value="<%= @post.id %>">
+  <input type="hidden" name="vote[votable_type]" value="<%= @post.class %>">
+  <input type="hidden" name="vote[value]" value= 1>
+  <input type="submit" value="👍">
+</form>
+<form action="<%= post_votes_url(@post) %>" method="post">
+  <%= auth_token %>
+  <input type="hidden" name="vote[votable_id]" value="<%= @post.id %>">
+  <input type="hidden" name="vote[votable_type]" value="<%= @post.class %>">
+  <input type="hidden" name="vote[value]" value= -1>
+  <input type="submit" value="👎">
+</form>
+<% if current_user == @post.author %>
+<a href="<%= edit_post_url(@post) %>">Edit this post</a>
+<form action=" <%= post_url(@post) %>" method="post">
+  <input type="hidden" name="_method" value="DELETE">
+  <%= auth_token %>
+  <input type="submit" value="Delete this post!">
+</form>
+<% end %>
+
+<br>
+<br>
+<h2>Comments:</h2>
+<ul>
+
+<% @all_comments[nil].each do |child| %>
+    <li><a href="<%= comment_url(child) %>">"<%= child.content %>"</a>
+      <br> <%= child.user.username %>, <%= time_ago_in_words(child.created_at) %> ago
+    </li>
+    <%= render "comment", comment: child, all_comments: @all_comments %>
+    <br><br>
+<% end %>
+
+
+
+</ul>
+<a href=" <%= new_post_comment_url(@post) %>">New comment!</a>

@@ -1,0 +1,17 @@
+<br><br>
+<h1><%= @sub.title %></h1>
+<br><br>
+<%= @sub.description %>
+<br><br>
+<a href="<%= new_sub_posts_url(@sub) %>">Create a post!</a>
+<br>
+<% if current_user == @sub.moderator %>
+<a href="<%= edit_sub_url %>">Edit this sub</a>
+<% end %>
+<ol>
+  <% @sub.posts.each do |post| %>
+    <li> <a href="<%= post_url(post) %>"><%= post.title %></a></li>
+  <% end %>
+</ol>
+
+<a href="<%= subs_url %>">back to front page</a>

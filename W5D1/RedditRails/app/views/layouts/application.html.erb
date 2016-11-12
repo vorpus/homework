@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>RedditOnRails</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+  <header>
+    <% flash.each do |_,error| %>
+      <%= error %>
+    <% end %>
+    <% if logged_in? %>
+      <%= current_user.username %>
+      <form action="<%= session_url %>" method="post">
+        <%= auth_token %>
+        <input type="hidden" name="_method" value="delete">
+        <input type="submit" value="log out">
+      </form>
+      <% else %>
+        <a href="<%= new_session_url %>">log in</a>
+        <br>
+        <a href="<%= new_user_url %>">sign up!</a>
+    <% end %>
+
+  </header>
+
+<%= yield %>
+
+</body>
+</html>

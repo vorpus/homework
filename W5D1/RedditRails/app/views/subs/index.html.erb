@@ -1,0 +1,8 @@
+<h1>all the subs!</h1>
+
+<% @subs.each do |sub| %>
+<a href="<%= sub_url(sub) %>"><%= sub.title %></a><br>
+<% end %>
+<br><br>
+
+<a href="<%= new_sub_url %>">new subReddit</a>

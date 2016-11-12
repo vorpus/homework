@@ -1,0 +1,8 @@
+<ul>
+  <% all_comments[comment.id].each do |child| %>
+    <li> <a href="<%= comment_url(child) %>">"<%= child.content %>"</a>
+      <br> <%= child.user.username %>, <%= time_ago_in_words(child.created_at) %> ago
+    </li>
+        <%= render "comment", comment: child, all_comments: all_comments %>
+  <% end %>
+</ul>
