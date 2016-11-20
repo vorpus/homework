@@ -1,0 +1,174 @@
+body {
+  font-family: "Arial", "sans-serif";
+  background-color: antiquewhite;
+  width: 80%;
+  margin: 0 auto;
+}
+
+
+img {
+  display: inline;
+}
+
+h1 {
+  font-size: 38px;
+}
+
+h2 {
+  font-size: 32px;
+}
+
+.ingredients-list {
+  list-style: square inside;
+}
+
+ol {
+  list-style: decimal;;
+}
+
+header > img {
+  width: 15%;
+  float: left;
+}
+
+img {
+  width: 100%;
+}
+
+
+ul li a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.user_review {
+  background-color: #c5bdef;
+}
+
+.group:after {
+  content: "";
+  display: block;
+  clear: both;
+}
+.navbar {
+  text-align: bottom;
+  margin-top: 30px;
+}
+
+.navbar li{
+  float: right;
+  margin-right: 10px;
+  list-style: none;
+}
+
+.dropdown {
+  background-image: url('hamburger.png');
+
+  width: 50px;
+  height: 50px;
+  background-size: 50px 50px;
+  float: right;
+
+
+  position: absolute;
+  top:10px;
+  right:50px;
+
+  cursor: pointer;
+}
+
+.dropdown ul {
+  display: none;
+  background-color: lightblue;
+  position: relative;
+  top: 25px;
+  right:30px;
+  width: 100px;
+  padding:10px;
+
+  transform: rotate(-30deg);
+  transition: all 1s ease-in;
+}
+
+
+.dropdown:hover ul {
+  display:block;
+  transform: rotate(0deg);
+}
+
+.dropdown li {
+  list-style: none;
+}
+
+section {
+  width: 700px;
+  display: inline-block;
+}
+
+aside {
+  width: 180px;
+  display: inline-block;
+  vertical-align: top;
+}
+
+li {
+  margin: 10px 0;
+}
+
+label {
+  display: block;
+  vertical-align: baseline;
+}
+
+input {
+  display: inline-block;
+}
+
+
+ol li:nth-child(even) {
+  background: lightgray;
+}
+
+input, select{
+  cursor: pointer;
+  outline: none;
+}
+
+input:last-child {
+  background-color: lightgreen;
+}
+
+h2 + .user_review {
+  border-top-style: solid;
+  border-width: 1px;
+}
+
+label {
+  margin-top: 20px;
+}
+
+input[type="radio"] {
+    width: 27px;
+    height: 27px;
+    background-image: url(./stars.png);
+}
+
+input[type="radio"]:checked {
+  background-position: 30px 30px;
+}
+
+input[type="radio"]:hover {
+  background-position: 30px 60px;
+}
+
+ul, menu, dir {
+    -webkit-padding-start: 0px;
+}
+
+img {
+  width: 100%;
+}
+
+footer {
+  float: left;
+}
