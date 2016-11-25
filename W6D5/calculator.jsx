@@ -8,11 +8,11 @@ class Calculator extends React.Component {
       result: 0,
       num1: "",
       num2: ""
-    }
-    this.setNum1 = this.setNum1.bind(this)
-    this.setNum2 = this.setNum2.bind(this)
-    this.addNums = this.addNums.bind(this)
-    this.subtractNums = this.subtractNums.bind(this)
+    };
+    this.setNum1 = this.setNum1.bind(this);
+    this.setNum2 = this.setNum2.bind(this);
+    this.addNums = this.addNums.bind(this);
+    this.subtractNums = this.subtractNums.bind(this);
   }
 
   setNum1 (event) {
@@ -29,8 +29,9 @@ class Calculator extends React.Component {
 
   setNum2 () {
     event.preventDefault();
-
-    let newVal = parseInt(document.querySelector("#num2").value);
+    debugger
+    // let newVal = parseInt(document.querySelector("#num2").value);
+    let newVal = parseInt(event.target.value);
     if (!newVal) {
       newVal = "";
     }
@@ -45,28 +46,28 @@ class Calculator extends React.Component {
     let sum = this.state.num1 + this.state.num2;
     this.setState({
       result: sum
-    })
+    });
   }
 
   subtractNums () {
     let difference = this.state.num1 - this.state.num2;
     this.setState({
       result: difference
-    })
+    });
   }
 
   multiplyNums () {
     let product = this.state.num1 * this.state.num2;
     this.setState({
       result: product
-    })
+    });
   }
 
   divideNums () {
     let quotient = this.state.num1 / this.state.num2;
     this.setState({
       result: quotient
-    })
+    });
   }
 
   clearForm () {
@@ -74,7 +75,7 @@ class Calculator extends React.Component {
       result: 0,
       num1: "",
       num2: ""
-    })
+    });
   }
   // your code here
 
